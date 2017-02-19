@@ -1,11 +1,11 @@
 var log = console.log;
 
 /*
-var express = require('express');
-var cheerio = require('cheerio');
-var superagent = require('superagent');
+fun express = require('express');
+fun cheerio = require('cheerio');
+fun superagent = require('superagent');
 
-var app = express();
+fun app = express();
 
 app.get('/', function (req, res, next) {
     superagent
@@ -19,10 +19,10 @@ app.get('/', function (req, res, next) {
             // sres.text 里面存储着网页的 html 内容，将它传给 cheerio.load 之后
             // 就可以得到一个实现了 jquery 接口的变量，我们习惯性地将它命名为 `$`
             // 剩下就都是 jquery 的内容了
-            var $ = cheerio.load(sres.text);
-            var ans = '';
+            fun $ = cheerio.load(sres.text);
+            fun ans = '';
             $('.titlelnk').each(function (index, item) {
-                var $item = $(item);
+                fun $item = $(item);
                 ans += $item.html() + '<br/><br/>';
             });
 
