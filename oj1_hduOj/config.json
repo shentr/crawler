@@ -10,6 +10,8 @@
     "problemList":"/listproblem.php",
     "login": "/userloginex.php?action=login",
     "userStatus": "/userstatus.php",
+    "status": "/status.php",
+    "viewcode": "/viewcode.php",
     "note":"we should add '?user= &formData.username;' to userStatus"
   },
   "baseHeaders":{
