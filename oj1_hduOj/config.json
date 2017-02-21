@@ -14,17 +14,6 @@
     "viewcode": "/viewcode.php",
     "note":"we should add '?user= &formData.username;' to userStatus"
   },
-  "baseHeaders":{
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Encoding": "gzip, deflate, sdch",
-    "Accept-Language": "en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4",
-    "Cache-Control": "max-age=0",
-    "Connection": "keep-alive",
-    "Host": "acm.hdu.edu.cn",
-    "If-Modified-Since": "Sat, 18 Feb 2017 13:10:44 GMT",
-    "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36"
-  },
   "procedure":  "1.模拟登陆 1.1 获取cookie账号：userName密码：password2."
 }
 

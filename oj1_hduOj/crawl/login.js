@@ -4,30 +4,38 @@
 'use strict';
 
 const config = require('./../config.json');
-const login = require('../../common/login');
+const getCookie = require('../../common/login').getCookieAsync;
+const postForm =require('../../common/fun/postForm');
 
 
 let
     urls = config.urls,
-    baseHeaders = config.baseHeaders,
     formData = config.formData;
 
 let hostname = urls.hostname,
     loginUrl = urls.hostname + urls.login,
-    rPhpsessid = /(PHPSESSID=.+?);/;                //regex for hdu cookie[phpsessid];
+    rPhpsessid = /(PHPSESSID=.+?);/,            //regex for hdu cookie[phpsessid];
+    encoding = 'gbk';
 
 
 /*
 * @return 登陆后的promise对象
+* promise 传递oRes = {
+ res: res,
+ oSet: oSet
+ }
 * */
 function loginAsync() {
     let promise;
-    promise = login.getCookieAsync(hostname, rPhpsessid)
-        .then((cookie) => {
-            return login.postFormAsync(loginUrl, formData, baseHeaders, cookie);
-        });
+    promise = getCookie(hostname, rPhpsessid ,encoding)
+     .then((cookie) => {
+            let set = {
+                'Cookie': cookie
+            };
+            return postForm(loginUrl, formData, set, encoding);
+        }
+     );
     return promise;
 }
-
 
 module.exports = loginAsync;

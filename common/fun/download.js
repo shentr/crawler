@@ -6,51 +6,24 @@ const Promise = require('promise');
 const charset = require('superagent-charset');
 const req = charset(require('superagent'));
 
-/*用promise控制流程，异步获取cookie*/
-function download(url, encoding = 'utf8') {
-    let promise = new Promise((resolve,reject) => {
-        req
-            .get(url)                       ///模拟浏览器发送get请求
-            .charset(encoding)
-            .end((err, res) => {            ///获得 response 后回调
-                if(err){
-                    reject(err);
-                    //console.log(errMsg + " :\n" + err);
-                    //return;
-                }
-                resolve(res);
-                //onSuccess(res, resolve);
-            });
-    });
-    return promise;
-}
-
-module.exports =exports =download;
-
-
 /*
-
-const Promise = require('promise');
-const charset = require('superagent-charset');
-const req = charset(require('superagent'));
-
-/!*用promise控制流程，异步获取cookie*!/
-function download(url, /!*onSuccess, errMsg,*!/ encoding = 'utf8') {
+* @return: promise
+* @parameter:  (url, encoding = 'utf8', oSet ={})
+* */
+function downloadAsync(url, encoding = 'utf8', oSet ={}) {
     let promise = new Promise((resolve,reject) => {
         req
             .get(url)                       ///模拟浏览器发送get请求
             .charset(encoding)
+            .set(oSet)
             .end((err, res) => {            ///获得 response 后回调
                 if(err){
                     reject(err);
-                    //console.log(errMsg + " :\n" + err);
-                    //return;
                 }
                 resolve(res);
-                //onSuccess(res, resolve);
             });
     });
     return promise;
 }
 
-module.exports =exports =download;*/
+module.exports =exports =downloadAsync;
