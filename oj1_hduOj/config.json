@@ -8,6 +8,7 @@
     "hostname": "acm.hdu.edu.cn",
     "hostnamePort": 80,
     "problemList":"/listproblem.php",
+    "showproblem": "/showproblem.php",
     "login": "/userloginex.php?action=login",
     "userStatus": "/userstatus.php",
     "status": "/status.php",

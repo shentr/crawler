@@ -13,13 +13,17 @@ const toLocal = require('../../common/toLoal');
 let
     encoding = 'gbk',
     timeS = 15,                      //队列空闲等待时间(s)
-    dir;
+    dir = '../data/hduOj/',
+    code = {},
+    rLanguage = /Language : (.+?)&/;
 
 let promiseTemp = [];
+let urls = config.urls;
 
 function listen(cookie) {
     let count = 0,
         i = 0,
+        info,                                           //代码的信息
         html;
         let interval = setInterval(() => {
             count++ ;
@@ -33,10 +37,18 @@ function listen(cookie) {
                 promiseTemp[i] = download(url, encoding ,set)
                     .then((res) => {
                         html = res.text;
+                        //console.log(html);
                         let $ = cherrio.load(html);
-                        //$('pre');
-                        let code = $('#usercode').html();
-                        toLocal(code);
+                        info = $('#usercode').prev().html();
+                        code.language = info.toString().match(rLanguage)[1];
+                        info = cherrio.load(info);
+                        code.code = $('#usercode').html();
+                        code.title = info('a').eq(0).html();
+                        code.url = urls.hostname + urls.showproblem + '?pid=' + code.title.match(/.{4}/);
+                        console.log(code.language);
+                        code.path = dir + code.title + '.' + ((code.language == 'C++' || 'G++' || 'GCC' || 'C')  ? 'cpp' : (code.language == 'Java' ? 'java' : 'txt'));
+                        code.code = '// ' + code.title + '\n' + '//' + code.url + '\n\n\n' + code.code;
+                        toLocal(code.code ,code.path);
                     });
                 i++;
             }

@@ -4,8 +4,12 @@
 
 const fs = require('fs');
 
-function downloadToLocal(code) {
-    
+function saveToLocal(code, localPath, errMsg) {
+    fs.writeFile(localPath, code, (err) => {
+        if (err)
+            console.log( (errMsg ? errMsg : "文件保存错误: \n") + err);
+        console.log("File Saved to" + localPath);
+    }) ;
 }
 
-module.exports = downloadToLocal;
+module.exports = saveToLocal;
