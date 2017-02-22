@@ -1,12 +1,16 @@
 {
+  "formData":{
+    "username": "shentr",
+    "password": "881290881290"
+  },
+  "urls": {
+    "hostname": "vjudge.net",
+    "hostnamePort": 80,
+    "problemList":"/problem",
+    "login": "/user/login",
+    "checkLogInStatus": "/user/checkLogInStatus",
+    "status": "/status"
+  },
+  "toLocalPath" :"",
   "procedure":  ""
-    /*
-  1.模拟登陆
-    账号：userName
-    密码：password
-  2.
-
-  */
-
 }
-
