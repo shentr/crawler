@@ -34,4 +34,7 @@ app.get('/', function (req, res, next) {
 app.listen(8000, function () {
     console.log('app is listening at port 8000');
 });*/
-
+let code = {};
+code.language = 'Java';
+//console.log((code.language === ('C++' || 'G++' || 'GCC' || 'C')));
+console.log((code.language === ('C++' || 'G++' || 'GCC' || 'C'))  ? 'cpp' : (code.language === 'Java' ? 'java' : 'txt'));

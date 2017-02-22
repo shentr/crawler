@@ -25,12 +25,13 @@ function listen(cookie) {
         i = 0,
         info,                                           //代码的信息
         html;
+    code.id = 0;
         let interval = setInterval(() => {
             count++ ;
             while(qUrls && qUrls.length > 0){
                 count = 0;
                 let url = qUrls.pop();
-                console.log(url);
+                //console.log(url);
                 let set = {
                     'Cookie': cookie
                 };
@@ -38,15 +39,16 @@ function listen(cookie) {
                     .then((res) => {
                         html = res.text;
                         //console.log(html);
-                        let $ = cherrio.load(html);
+                        let $ = cherrio.load(html, {decodeEntities: false});    ///不转义为实体
                         info = $('#usercode').prev().html();
                         code.language = info.toString().match(rLanguage)[1];
-                        info = cherrio.load(info);
+                        info = cherrio.load(info, {decodeEntities: false});
                         code.code = $('#usercode').html();
                         code.title = info('a').eq(0).html();
                         code.url = urls.hostname + urls.showproblem + '?pid=' + code.title.match(/.{4}/);
-                        console.log(code.language);
-                        code.path = dir + code.title + '.' + ((code.language == 'C++' || 'G++' || 'GCC' || 'C')  ? 'cpp' : (code.language == 'Java' ? 'java' : 'txt'));
+                        //console.log(code.language);
+                        code.id ++;
+                        code.path = dir + code.title + code.id + '.' + ((code.language === 'C++' || code.language ==='G++' || code.language ==='GCC' || code.language ==='C')  ? 'cpp' : (code.language === 'Java' ? 'java' : 'txt'));
                         code.code = '// ' + code.title + '\n' + '//' + code.url + '\n\n\n' + code.code;
                         toLocal(code.code ,code.path);
                     });
@@ -67,7 +69,6 @@ function downloadListener() {
         });
 }
 
-downloadListener();
 
-//module.exports = downloadAsync;
+module.exports = downloadListener;
 
