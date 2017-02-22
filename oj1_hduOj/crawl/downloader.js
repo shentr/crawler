@@ -12,10 +12,11 @@ const toLocal = require('../../common/toLoal');
 
 let
     encoding = 'gbk',
-    timeS = 15,                      //队列空闲等待时间(s)
+    timeS = 30,                      //队列空闲等待时间(s)
     dir = '../data/hduOj/',
     code = {},
-    rLanguage = /Language : (.+?)&/;
+    rLanguage = /Language : (.+?)&/
+    ;
 
 let promiseTemp = [];
 let urls = config.urls;
@@ -25,7 +26,7 @@ function listen(cookie) {
         i = 0,
         info,                                           //代码的信息
         html;
-    code.id = 0;
+        code.id = 0;
         let interval = setInterval(() => {
             count++ ;
             while(qUrls && qUrls.length > 0){
@@ -48,7 +49,7 @@ function listen(cookie) {
                         code.url = urls.hostname + urls.showproblem + '?pid=' + code.title.match(/.{4}/);
                         //console.log(code.language);
                         code.id ++;
-                        code.path = dir + code.title + code.id + '.' + ((code.language === 'C++' || code.language ==='G++' || code.language ==='GCC' || code.language ==='C')  ? 'cpp' : (code.language === 'Java' ? 'java' : 'txt'));
+                        code.path = dir + code.title + '_' + code.id + '.' + ((code.language === 'C++' || code.language ==='G++' || code.language ==='GCC' || code.language ==='C')  ? 'cpp' : (code.language === 'Java' ? 'java' : 'txt'));
                         code.code = '// ' + code.title + '\n' + '//' + code.url + '\n\n\n' + code.code;
                         toLocal(code.code ,code.path);
                     });
@@ -64,7 +65,8 @@ function listen(cookie) {
 function downloadListener() {
     login()
         .then((oRes) => {
-            //console.log(oRes.oSet.Cookie);
+            console.log("登陆等初始化已经完成，正在拼了命的下载中...");
+            dir = config.toLocalPath.length > 0 ? config.toLocalPath : dir;
             return listen(oRes.oSet.Cookie);
         });
 }

@@ -5,12 +5,21 @@
 const fs = require('fs');
 const he = require('he');
 
-function saveToLocal(code, localPath, errMsg) {
+function saveToLocal(code, localPath, errMsg, mustSave = true) {
     code = he.decode(code);                     // 实体转义
     fs.writeFile(localPath, code, (err) => {
-        if (err)
-            console.log( (errMsg ? errMsg : "文件保存错误: \n") + err);
-        console.log("File Saved to" + localPath);
+        if (err){
+            let cnt = 0;
+            if(mustSave && cnt <10 ){
+                saveToLocal(code, localPath, errMsg ,mustSave);
+                cnt ++;
+                if(cnt >= 10) console.log((errMsg ? errMsg : "文件保存错误: \n") + err)
+            }
+            else
+                console.log( (errMsg ? errMsg : "文件保存错误: \n") + err);
+        }
+        else
+            console.log("File Saved to" + localPath +"SUCCESS! ^v^");
     }) ;
 }
 

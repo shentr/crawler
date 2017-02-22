@@ -33,7 +33,7 @@ function collectPidUrls() {
                      sP = $('table table p').eq(2).text();
                      aP = sP.split(';');
                      aPLength = aP.length - 1;
-                     for(let i = 0; i < 5/*aPLength*/; i++){
+                     for(let i = 0; i < aPLength; i++){
                          pid = aP[i].slice(2,6);
                          queryString = querystring.encode({
                              user: username,
