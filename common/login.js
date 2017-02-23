@@ -24,7 +24,6 @@ function getCookieAsync(hostname, regExrCookie, encoding = 'utf8') {
                 if(!cookie){
                     reject('cookie 获取失败');
                 }
-                //console.log(cookie);
                 resolve(cookie);
             },
                 (err) => {
@@ -36,6 +35,5 @@ function getCookieAsync(hostname, regExrCookie, encoding = 'utf8') {
     });
     return promise;
 }
-
 
 module.exports.getCookieAsync = getCookieAsync;

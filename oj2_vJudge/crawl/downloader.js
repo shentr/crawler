@@ -11,7 +11,7 @@ const toLocal = require('../../common/toLoal');
 
 
 let
-    encoding = 'gbk',
+    encoding = 'utf8',
     timeS = 30,                      //队列空闲等待时间(s)
     dir = '../data/hduOj/',
     code = {},

@@ -9,7 +9,8 @@
     "problemList":"/problem",
     "login": "/user/login",
     "checkLogInStatus": "/user/checkLogInStatus",
-    "status": "/status"
+    "status": "/status",
+    "data" : "/status/data/"
   },
   "toLocalPath" :"",
   "procedure":  ""

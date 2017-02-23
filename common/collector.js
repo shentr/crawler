@@ -2,15 +2,15 @@
  * Created by shentr<https://github.com/shentr/crawler.git> on 2017/2/19.
  */
 const Promise = require('promise');
-const download = require('./fun/download');
+const postForm = require('./fun/postForm');
 
-function collectAsync(url, encoding) {
+function collectAsync(url ,encoding ,oFormData,oSet) {
     let promise = new Promise((resolve, reject) => {
-        download(url, encoding)
+        postForm(url, oFormData, oSet, encoding)
             .then(
-                (res) => {
+                (oRes) => {
                     //collect the urls which we need
-                    resolve(res);
+                    resolve(oRes);
                 },
                 (err) => {
                     let errMsg = "collector 下载失败 :\n" + err;

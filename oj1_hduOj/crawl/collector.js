@@ -27,8 +27,8 @@ function collectPidUrls() {
      let html, link, pid, queryString, sP , aP, aPLength,
          promise = new Promise((resolve, reject) => {
              collect(collectUrl,  encoding)
-                 .then((res) => {
-                     html = res.text;
+                 .then((oRes) => {
+                     html = oRes.res.text;
                      let $ = cheerio.load(html);
                      sP = $('table table p').eq(2).text();
                      aP = sP.split(';');
@@ -58,10 +58,11 @@ function collectPidUrls() {
 
     collectPidUrls()
         .then((qPids) => {
+            //console.log(qPids)
             for(pid = 0; pid < qPids.length; pid++){
                 collect(qPids[pid], encoding)
-                    .then((res) => {
-                        html = res.text;
+                    .then((oRes) => {
+                        html = oRes.res.text;
                         let $ = cheerio.load(html);
                         length = $('table').children('tr').length - 11;
                         length = length >= 0 ? length : 1;

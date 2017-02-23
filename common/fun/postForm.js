@@ -5,13 +5,15 @@
 const Promise = require('promise');
 const req=require('superagent');
 const charset = require('superagent-charset');
+charset(req);
+
 
 /*
- * @return: promise
+ * @return: promise   oRes{ res oSet}
  * @parameter:(url, oFormData, oSet)
  * post提交Form信息
  * */
-function postFormAsync(url, oFormData, oSet = {}, encoding = 'uft8') {
+function postFormAsync(url, oFormData = {}, oSet = {}, encoding = 'uft8') {
     let promise = new Promise((resolve,reject) => {
         req.post(url)
             .charset(encoding)
