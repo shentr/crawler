@@ -44,7 +44,7 @@ function listen(cookie) {
                         code.oj = data.oj;
                         code.probNum = data.probNum;
                         code.title = code.oj + code.probNum;
-                        code.url =getOjUrl(code.oj, code.id);
+                        code.url =getOjUrl(code.oj, code.probNum);
                         //console.log(code.languageCanonical);
                         code.id ++;
                         code.path = dir + code.title + '_' + code.id + '.' +  code.languageCanonical;
@@ -68,7 +68,6 @@ function downloadListener() {
             return listen(oRes.oSet.Cookie);
         });
 }
-downloadListener()
 
 module.exports = downloadListener;
 

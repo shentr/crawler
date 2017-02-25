@@ -19,7 +19,7 @@ function saveToLocal(code, localPath, errMsg, mustSave = true) {
                 console.log( (errMsg ? errMsg : "文件保存错误: \n") + err);
         }
         else
-            console.log("File Saved to" + localPath +"SUCCESS! ^v^");
+            console.log("File Saved to" + localPath +"   SUCCESS! ^v^");
     }) ;
 }
 
