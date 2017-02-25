@@ -1,17 +1,20 @@
 {
   "formData":{
     "username": "shentr",
-    "password": "881290881290"
+    "password": ""
   },
   "urls": {
+    "http":"https://",
     "hostname": "vjudge.net",
     "hostnamePort": 80,
     "problemList":"/problem",
     "login": "/user/login",
     "checkLogInStatus": "/user/checkLogInStatus",
     "status": "/status",
-    "data" : "/status/data/"
+    "data" : "/status/data/",
+    "solution": "/solution/data/"
   },
+  "drawsTotal": 100,
   "toLocalPath" :"",
-  "procedure":  ""
+  "note":  "drawsTotal 题目分页总数，toLocalPath 保存的地址"
 }

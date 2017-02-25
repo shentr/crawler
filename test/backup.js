@@ -1,7 +1,7 @@
-const req = require('superagent');
+/**
+ * Created by shentr<https://github.com/shentr/crawler.git> on 2017/2/23.
+ */
 
-let
-url = 'https://vjudge.net/status/data',
 formData = {
     draw: 1,
     'columns[0][data]':0,
@@ -85,17 +85,13 @@ formData = {
 
 let set = {
     accept:'application/json, text/javascript, */*; q=0.01',
+    'accept-encoding':'gzip, deflate, br',
+    'accept-language':'en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4',
+    'content-length':2440,
     'content-type':'application/x-www-form-urlencoded; charset=UTF-8',
+    cookie:'JSESSIONID=3BC3A4C4B8C9506514A49838F4938A76; _ga=GA1.2.1166223172.1487757574',
+    origin:'https://vJudge.net',
+    referer:'https://vJudge.net/status',
+    'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
     'x-requested-with':'XMLHttpRequest',
 };
-
-req
-    .post(url)
-    .set(set)
-    .type('form')
-    .send(formData)
-    .end((err, res)=>{
-    if(err)
-        console.log(err);
-    console.log(res.text)
-})

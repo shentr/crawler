@@ -13,7 +13,7 @@ let
     formData = config.formData;
 
 let hostname = urls.hostname,
-    loginUrl = urls.hostname + urls.login,
+    loginUrl = urls.http + urls.hostname + urls.login,
     rJsessionId = /(JSESSIONID=.+?);/,            //regex for hdu cookie[phpsessid];
     encoding = 'utf8';
 

@@ -4,7 +4,7 @@
 const Promise = require('promise');
 const postForm = require('./fun/postForm');
 
-function collectAsync(url ,encoding ,oFormData,oSet) {
+function collectAsync(url, encoding, oFormData, oSet) {
     let promise = new Promise((resolve, reject) => {
         postForm(url, oFormData, oSet, encoding)
             .then(

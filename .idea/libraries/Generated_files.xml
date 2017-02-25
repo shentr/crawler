@@ -11,11 +11,11 @@
         <item url="file://$PROJECT_DIR$/dist/oj1_hduOj/crawl/downloader.js" />
         <item url="file://$PROJECT_DIR$/dist/common/downloader.js" />
         <item url="file://$PROJECT_DIR$/dist/oj1_hduOj/crawl/login.js" />
-        <item url="file://$PROJECT_DIR$/dist/hduOj/login.js" />
         <item url="file://$PROJECT_DIR$/dist/common/fun/download.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/dist/hduOj/login.js" />
       <root url="file://$PROJECT_DIR$/dist/common/fun/postForm.js" />
       <root url="file://$PROJECT_DIR$/dist/common/collector.js" />
       <root url="file://$PROJECT_DIR$/dist/common/toLoal.js" />
@@ -25,7 +25,6 @@
       <root url="file://$PROJECT_DIR$/dist/oj1_hduOj/crawl/downloader.js" />
       <root url="file://$PROJECT_DIR$/dist/common/downloader.js" />
       <root url="file://$PROJECT_DIR$/dist/oj1_hduOj/crawl/login.js" />
-      <root url="file://$PROJECT_DIR$/dist/hduOj/login.js" />
       <root url="file://$PROJECT_DIR$/dist/common/fun/download.js" />
     </CLASSES>
     <SOURCES />

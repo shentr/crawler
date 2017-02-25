@@ -1,0 +1,23 @@
+{
+  "shareCode": "lTZoybpqjUzaDX7wQARk",
+  "memory": 840,
+  "code": "#include\u003ciostream\u003e\n#include\u003ccstdio\u003e\nusing namespace std;\nint pre[30010];\n\nvoid init(int n)\n{\n    for(int i\u003d0;i\u003cn;i++)\n        pre[i]\u003di;\n}\n\nint find(int a)\n{\n    int r\u003da;\n    while(r!\u003dpre[r])\n        r\u003dpre[r];\n    int i\u003da;\n    while(pre[i]!\u003dr)\n    {\n        int j\u003dpre[i];\n        pre[i]\u003dr;\n        i\u003dj;\n    }\n    return r;\n}\n\nvoid join(int a,int b)\n{\n    int fa\u003dfind(a),fb\u003dfind(b);\n    if(fa!\u003dfb)\n        pre[fb]\u003dfa;\n}\n\nint main()\n{\n    int n,m,a,k;\n    while(cin\u003e\u003en\u003e\u003em\u0026\u0026(n||m))\n    {\n        init(n);\n        while(m--)\n        {\n            cin\u003e\u003ek;\n            cin\u003e\u003ea;\n            int pr\u003da;\n            for(int i\u003d1;i\u003ck;i++)\n            {\n                cin\u003e\u003ea;\n                join(pr,a);\n                pr\u003da;\n            }\n        }\n        int ans\u003d0,f\u003dfind(0);\n        for(int i\u003d0;i\u003cn;i++)\n        {\n            if(find(i)\u003d\u003df)\n                ans++;\n        }\n        cout\u003c\u003cans\u003c\u003cendl;\n    }\n}\n",
+  "statusType": 0,
+  "author": "shentr",
+  "length": 898,
+  "runtime": 125,
+  "language": "G++",
+  "statusCanonical": "AC",
+  "authorId": 68912,
+  "languageCanonical": "CPP",
+  "contestId": 86955,
+  "submitTime": 1439091583000,
+  "isOpen": 0,
+  "contestNum": "A",
+  "processing": false,
+  "runId": 4333756,
+  "oj": "POJ",
+  "remoteRunId": "14571692",
+  "probNum": "1611",
+  "status": "Accepted"
+}
