@@ -4,4 +4,6 @@
 
 const download = require('./crawl/downloader');
 
-download();
+(function crawl() {
+    download();
+})();

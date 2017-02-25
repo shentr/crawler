@@ -65,7 +65,7 @@ function listen(cookie) {
 function downloadListener() {
     login()
         .then((oRes) => {
-            console.log("登陆已经完成，正在拼了命的收集题目...");
+            console.log("HDU登陆已经完成，正在拼了命的收集题目...");
             dir = config.toLocalPath.length > 0 ? config.toLocalPath : dir;
             return listen(oRes.oSet.Cookie);
         });

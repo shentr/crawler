@@ -26,7 +26,7 @@ let hostname = urls.hostname,
  }
 * */
 function loginAsync() {
-    console.log("登陆中,请稍后...");
+    console.log("VJudge登陆中,请稍后...");
     let promise;
     promise = getCookie(hostname, rJsessionId ,encoding)
      .then((cookie) => {

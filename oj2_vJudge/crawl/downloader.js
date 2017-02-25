@@ -55,7 +55,7 @@ function listen(cookie) {
             }
             if(count > timeS) {
                 clearInterval(interval);
-                console.log('HDU 所选代码已经下载到' + dir);
+                console.log('VJudge所选代码已经下载到' + dir);
             }
         },1000);
 }
@@ -63,7 +63,7 @@ function listen(cookie) {
 function downloadListener() {
     login()
         .then((oRes) => {
-            console.log("登陆等初始化已经完成，正在拼了命的下载中...");
+            console.log("VJudge登陆等初始化已经完成，正在拼了命的下载中...");
             dir = config.toLocalPath.length > 0 ? config.toLocalPath : dir;
             return listen(oRes.oSet.Cookie);
         });

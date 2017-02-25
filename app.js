@@ -1,4 +1,18 @@
-var express = require('express');
+/**
+* Created by shentr<https://github.com/shentr/crawler.git> on 2017/2/19.
+*/
+
+/*const hduOj =require('./oj1_hduOj/crawl');
+const hduOjcfg = require('./oj1_hduOj/config');
+const vJudge = require('./oj2_vJudge/crawl');
+const vJudgecfg = require('./oj2_vJudge/config');
+
+
+if(hduOjcfg.formData.username.length > 0) hduOj();
+if(vJudgecfg.formData.username.length > 0) vJudge();*/
+
+
+/*var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -43,4 +57,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = app;*/
