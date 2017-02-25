@@ -9,7 +9,7 @@
 <h2>How to use:</h2>
 
    <p>1.进入相应的OJ目录,如（/oj1_hduOj,/oj2_vJudge） </p>
-   <p>2.点开config.json,输入用户名和密码即可（formdata 这项）</p>
+   <p>2.点开config.json,输入用户名和密码（formdata 这项）</p>
    <p>3.最后用node运行crawl.js即可 </p>
-   
+   <p>PS:可以在config.json中修改保存地址等</p>
   
